@@ -1,0 +1,62 @@
+<!--Index-->
+<template name="customer">
+    <h1 style="font-size: 40px; font-weight: bold" class="text-primary page-header top">Customer</h1>
+    <p>
+        <a href="{{pathFor 'customerInsert'}}" class="btn btn-raised btn-primary fa fa-plus"> Add</a>
+    </p>
+
+    {{> tabular table=TabularTables.Customer class="table table-striped table-hover"}}
+</template>
+
+<!--Insert-->
+<template name="customerInsert">
+    <p>
+        <a href="{{pathFor 'customer'}}" class="btn btn-raised btn-primary fa fa-arrow-left"> Back</a>
+    </p>
+    <!--{{> quickForm collection="Collection.Customer" id="customerInsert" type="insert"}}-->
+    {{#autoForm collection="Collection.Customer" id="customerInsert" type="insert"}}
+        <legend style="font-size: 35px; font-weight: bold" class="text-primary"><i class="fa fa-user-plus"></i> Add New Customer</legend>
+        <div class="row">
+            <div class="col-md-4">{{> afQuickField name='customerName'}}</div>
+            <div class="col-md-4">{{> afQuickField name='gender'}}</div>
+            <div class="col-md-4">{{> afQuickField name='type'}}</div>
+            <div class="col-md-4">{{> afQuickField name='address'}}</div>
+            <div class="col-md-4">{{> afQuickField name='phone'}}</div>
+        </div>
+        <button type="submit" class="btn btn-raised btn-primary fa fa-save"> Insert</button>
+    {{/autoForm}}
+</template>
+
+<!--Update-->
+<template name="customerUpdate">
+    <p>
+        <a href="{{pathFor 'customer'}}" class="btn btn-raised btn-primary fa fa-arrow-left"> Back</a>
+    </p>
+    <!--{{> quickForm collection="Collection.Customer"  id="customerUpdate" type="update"}}-->
+    {{#autoForm collection="Collection.Customer" doc=customerDoc id="customerUpdate" type="update"}}
+        <legend style="font-size: 35px; font-weight: bold" class="text-primary"><i class="fa fa-user-secret"></i> Customer Update</legend>
+        <div class="row">
+            <div class="col-md-4">{{> afQuickField name='customerName'}}</div>
+            <div class="col-md-4">{{> afQuickField name='gender'}}</div>
+            <div class="col-md-4">{{> afQuickField name='type'}}</div>
+            <div class="col-md-4">{{> afQuickField name='address'}}</div>
+            <div class="col-md-4">{{> afQuickField name='phone'}}</div>
+        </div>
+        <button type="submit" class="btn btn-raised btn-primary fa fa-save"> Update</button>
+    {{/autoForm}}
+</template>
+
+<!--Action-->
+<template name="customerAction">
+    <div class="btn-group">
+        <a class="btn btn-raised btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+            <i class="fa fa-cog fa-spin"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="jsUpdate">Update</a></li>
+            <li class="divider"></li>
+            <li><a class="jsRemove">Remove</a></li>
+        </ul>
+    </div>
+
+</template>

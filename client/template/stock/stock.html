@@ -1,0 +1,57 @@
+<!--Index-->
+<template name="stock">
+    <h1 style="font-size: 40px; font-weight: bold" class="text-primary page-header top">Stock</h1>
+    <p>
+        <a href="{{pathFor 'stockInsert'}}" class="btn btn-raised btn-primary fa fa-plus"> Add</a>
+    </p>
+
+    {{> tabular table=TabularTables.Stock class="table table-striped table-hover"}}
+</template>
+
+<!--Insert-->
+<template name="stockInsert">
+    <p>
+        <a href="{{pathFor 'stock'}}" class="btn btn-raised btn-primary fa fa-arrow-left"> Back</a>
+    </p>
+    <!--{{> quickForm collection="Collection.Stock" id="stockInsert" type="insert"}}-->
+    {{#autoForm collection="Collection.Stock" id="stockInsert" type="insert"}}
+        <legend style="font-size: 35px; font-weight: bold" class="text-primary"><i class="fa fa-coffee"></i> Add New Product</legend>
+        <div class="row">
+            <div class="col-md-4">{{> afQuickField name='productName'}}</div>
+            <div class="col-md-4">{{> afQuickField name='category'}}</div>
+            <div class="col-md-4">{{> afQuickField name='productType'}}</div>
+            <div class="col-md-4">{{> afQuickField name='price'}}</div>
+            <div class="col-md-4">{{> afQuickField name='qty'}}</div>
+            <div class="col-md-4">{{> afQuickField name='importDate'}}</div>
+            <div class="col-md-4">{{> afQuickField name='total'}}</div>
+        </div>
+        <button type="submit" class="btn btn-raised btn-primary fa fa-save"> Insert</button>
+    {{/autoForm}}
+</template>
+
+<!--Update-->
+<template name="stockUpdate">
+    <p>
+        <a href="{{pathFor 'stock'}}" class="btn btn-raised btn-primary fa fa-arrow-left"> Back</a>
+    </p>
+    <!--{{> quickForm collection="Collection.Stock"  id="stockUpdate" type="update"}}-->
+    {{#autoForm collection="Collection.Stock" doc=stockDoc id="stockUpdate" type="update"}}
+        <legend style="font-size: 35px; font-weight: bold" class="text-primary"><i class="fa fa-glass"></i> Stock Update</legend>
+        <div class="row">
+            <div class="col-md-4">{{> afQuickField name='productName'}}</div>
+            <div class="col-md-4">{{> afQuickField name='category'}}</div>
+            <div class="col-md-4">{{> afQuickField name='productType'}}</div>
+            <div class="col-md-4">{{> afQuickField name='price'}}</div>
+            <div class="col-md-4">{{> afQuickField name='qty'}}</div>
+            <div class="col-md-4">{{> afQuickField name='importDate'}}</div>
+            <div class="col-md-4">{{> afQuickField name='total'}}</div>
+        </div>
+        <button type="submit" class="btn btn-raised btn-primary fa fa-save"> Update</button>
+    {{/autoForm}}
+</template>
+
+<!--Action-->
+<!--<template name="stockAction">-->
+    <!--<button class="jsUpdate btn btn-primary">Update</button>-->
+    <!--<button class="jsRemove btn btn-danger">Remove</button>-->
+<!--</template>-->

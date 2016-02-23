@@ -1,0 +1,53 @@
+<template name="orderReport">
+    <h1 style="font-size: 40px; font-weight: bold" class="text-primary page-header top">Order Report</h1>
+    {{#autoForm schema="Schema.OrderReport" id="orderReport"}}
+        <fieldset>
+            <div class="col-md-6">{{> afQuickField name='dateFrom'}}</div>
+            <div class="col-md-6">{{> afQuickField name='dateTo'}}</div>
+        </fieldset>
+        <button type="submit" class="btn btn-raised btn-primary fa fa-search"> View Report</button>
+    {{/autoForm}}
+</template>
+
+<!--register Report Generator-->
+<template name="orderReportGen">
+    <div style="width: 720px; margin: auto; border: 1px; ">
+        <img src="banner.png" style="margin-top: 20px; width: 720px; height: 100px;">
+        <b class="text-primary">Report Data: {{data.header.orderDate}}</b>
+        <table width="100%" class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="text-primary">No</th>
+                <th class="text-primary">Order ID</th>
+                <th class="text-primary">Order Date</th>
+                <th class="text-primary">Customer</th>
+                <th class="text-primary">Product</th>
+                <th class="text-primary">Address</th>
+                <th class="text-primary">Type</th>
+                <th class="text-primary">Unit Price</th>
+                <th class="text-primary">Total Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each data.content}}
+                <tr>
+                    <td align="center">{{no @index}}</td>
+                    <td align="center">{{_id}}</td>
+                    <td>{{moFormat orderDate "MMM/DD/YYYY"}}</td>
+                    <td align="center">{{_customer.customerName}}</td>
+                    <td align="center">{{_stock.productName}}</td>
+                    <td align="center">{{address}}</td>
+                    <td align="center">{{productType}}</td>
+                    <td align="center">$ {{price}}</td>
+                    <td align="center">$ {{total}}</td>
+                </tr>
+            {{/each}}
+            <tr>
+                <td align="center" colspan="7">Grand Total</td>
+                <td align="center">$ {{data.price}}</td>
+                <td align="center">$ {{data.total}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
