@@ -3,6 +3,7 @@
     <h1 style="font-size: 40px; font-weight: bold" class="text-primary page-header top">Customer</h1>
     <p>
         <a href="{{pathFor 'customerInsert'}}" class="btn btn-raised btn-primary fa fa-plus"> Add</a>
+        <!-- <button href="{{pathFor 'customerInsert'}}" class="btn btn-raised btn-primary fa fa-plus" id="insert"> Add</button> -->
     </p>
 
     {{> tabular table=TabularTables.Customer class="table table-striped table-hover"}}
@@ -20,7 +21,7 @@
             <div class="col-md-4">{{> afQuickField name='customerName'}}</div>
             <div class="col-md-4">{{> afQuickField name='gender'}}</div>
             <div class="col-md-4">{{> afQuickField name='type'}}</div>
-            <div class="col-md-4">{{> afQuickField name='address'}}</div>
+            <div class="col-md-4">{{> afQuickField name='address'}}</div>,
             <div class="col-md-4">{{> afQuickField name='phone'}}</div>
         </div>
         <button type="submit" class="btn btn-raised btn-primary fa fa-save"> Insert</button>
