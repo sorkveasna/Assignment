@@ -66,7 +66,9 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     {{> loginButtons}} <!-- here -->
+                    {{#if currentUser}}
                     <li><a href="{{pathFor 'aboutUs'}}"><i class="fa fa-users"></i></a></li>
+                    {{/if}}
                 </ul>
 
             </div>
